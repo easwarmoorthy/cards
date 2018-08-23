@@ -59,6 +59,8 @@ app.get("/getcards", IsAuthenticated, controller.getCards);
 app.post("/card", IsAuthenticated, controller.addCard);
 
 
-
-
-app.listen(3000);
+app.set('port', process.env.App_PORT || 3000);
+app.listen(app.get('port'), () => {
+    console.log('%s server running on port', chalk.green('✓'), app.get('port'));
+    console.log('  Press CTRL-C to stop\n');
+});
