@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const app = express();
 var session = require('express-session');
+// const chalk = require("chalk");
 // const userController = require("./controllers/user");
 
 app.use(bodyParser.json());
