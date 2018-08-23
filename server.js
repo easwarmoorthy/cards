@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const app = express();
 var session = require('express-session');
-// const chalk = require("chalk");
+const chalk = require("chalk");
 // const userController = require("./controllers/user");
 
 app.use(bodyParser.json());
@@ -61,7 +61,7 @@ app.post("/card", IsAuthenticated, controller.addCard);
 
 
 app.set('port', process.env.App_PORT || 3000);
-// app.listen(app.get('port'), () => {
-//     console.log('%s server running on port', chalk.green('✓'), app.get('port'));
-//     console.log('  Press CTRL-C to stop\n');
-// });
+app.listen(app.get('port'), () => {
+    console.log('%s server running on port', chalk.green('✓'), app.get('port'));
+    console.log('  Press CTRL-C to stop\n');
+});
