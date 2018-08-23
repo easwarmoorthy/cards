@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Search Users</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  </head>
+  <body ng-app="userApp" ng-controller="followCtrl">
+    <div class="input-group">
+      <label for="search">Search User</label>
+      <input type="text" ng-change="searchUsers(searchName)" ng-model="searchName">
+    </div>
+    <ul ng-repeat="user in searchedUsers">
+      <li>
+        <span>{{user.displayName}}</span>
+        <span>{{user.fullName}}</span>
+        <button ng-click="sendRequest(user)">Send Request</button>
+      </li>
+    </ul>
+  <script type="text/javascript" src="../controllers/userCtrl.js"></script>
+  </body>
+</html>

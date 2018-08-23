@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Card</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  </head>
+  <body ng-app="cardApp" ng-controller="cardCtrl">
+    <h1>Cards</h1>
+    <form name="cardForm" novalidate>
+      <div>
+        <label for="title">Title</label>
+        <input type="text" ng-model="card.title" required>
+      </div>
+      <div>
+        <label for="description">Description</label>
+        <textarea type="text" ng-model="card.description" required></textarea>
+      </div>
+      <div>
+        <label for="tag">Tag</label>
+        <input type="text" ng-model="card.tag" required>
+      </div>
+      <div>
+        <label for="title">Add Options</label>
+        <ul ng-repeat="option in card.options">
+          <li>{{option}}</li>
+        </ul>
+      </div>
+      <div>
+        <input type="button" value="Submit" ng-click="addCard(card)" required>
+      </div>
+    </form>
+    <form ng-submit="addOption(card.option)">
+      <input type="text" ng-model="card.option" required>
+    </form>
+    <ul ng-repeat="x in cards">
+      <li>
+        <h5>{{x.title}}</h5>
+        <p>{{x.description}}</p>
+        <span>{{x.tag}}</span>
+        <ul ng-repeat="y in x.options">
+          <li>{{y}}</li>
+        </ul>
+      </li>
+    </ul>
+    <script type="text/javascript" src="../controllers/cardCtrl.js"></script>
+  </body>
+</html>
